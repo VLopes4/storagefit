@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from 'react-native-vector-icons/FontAwesome';
 import Home from '../pages/Home';
 
 const Tab = createBottomTabNavigator();
@@ -26,7 +26,7 @@ export default function Routes() {
             })}
             tabBarOptions={{
                 inactiveTintColor: 'gray',
-                activeTintColor: '#00ad82',
+                activeTintColor: '#005187',
                 showLabel: false
             }}    
         >
