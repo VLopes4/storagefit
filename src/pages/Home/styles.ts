@@ -35,7 +35,8 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#737373',
         borderRadius: 8,
-        marginTop: 20
+        margin: 10,
+        bottom: 20
     },
     cardHeaderTraining: {
         flexDirection: 'row',
@@ -49,5 +50,10 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         marginLeft: 10
+    },
+    trainingTitle: {
+        textAlign: 'center',
+        fontSize: 20,
+        marginTop: 15
     }
 });
