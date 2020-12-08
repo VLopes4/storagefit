@@ -7,6 +7,7 @@ import Routes from './src/routes/nav.routes';
 const App = () => {
   return (
     <>
+    <StatusBar barStyle="dark-content" backgroundColor="white"/>
     <NavigationContainer>
       <Routes/>
     </NavigationContainer>

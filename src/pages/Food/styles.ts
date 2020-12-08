@@ -1,7 +1,18 @@
 import { StyleSheet } from 'react-native';
-import { Border } from 'victory-native';
 
 export const styles = StyleSheet.create({
+    title: {
+        fontSize: 25,
+        color: '#003265',
+        fontWeight: 'bold'
+    },
+    text: {
+        fontSize: 18,
+        textAlign: 'left',
+        marginTop: 10,
+        marginBottom: 10,
+        color: '#000'
+    },
     backgroundImg: {
         width: 'auto',
         height: 250,
@@ -13,7 +24,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         backgroundColor: "#000000a0",
     },
-    title: {
+    titleImg: {
         color: '#fff',
         fontWeight: 'bold',
         fontSize: 30,
