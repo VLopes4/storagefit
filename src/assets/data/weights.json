@@ -1,0 +1,18 @@
+{
+    "weight": [
+        {
+            "id": 1,
+            "initial": 65,
+            "current": 71,
+            "name": "ganho",
+            "total": 6
+        }
+    ],
+    "weight_month": [
+        {
+            "id": 1,
+            "month": 11,
+            "weight": 71.5
+        }
+    ]
+}

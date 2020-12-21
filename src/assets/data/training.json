@@ -1,0 +1,14 @@
+{
+    "training": [
+        {
+            "id": 1,
+            "title": "Ombro e Perna",
+            "description": "Seguir a seguinte ordem: alongamentos, elevação lateral com halter, levantamento frontal com halter seguido de agachamento e extensora"
+        },
+        {
+            "id": 2,
+            "title": "a",
+            "description": "teste?"
+        }
+    ]
+}

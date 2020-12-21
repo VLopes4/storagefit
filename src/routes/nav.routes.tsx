@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { styles } from './styles';
 import Home from '../pages/Home';
 import FoodRoutes from './food.routes';
-import Add from '../pages/Add';
+import AddRoutes from './add.routes';
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +44,7 @@ export default function Routes() {
             <Tab.Screen name="Food" component={FoodRoutes}/>
             <Tab.Screen 
                 name="Add" 
-                component={Add} 
+                component={AddRoutes} 
                 options={() => ({
                     tabBarIcon: ({ focused }) => (
                         <LinearGradient style={styles.iconTabRound} start={{ x: 2, y: 0 }} end={{ x: 0, y: 0 }} colors={focused ? ['#b2eaff', '#5389f2', '#003265'] : ['#9e9e9e', '#808080', '#575757']}>
