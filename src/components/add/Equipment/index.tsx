@@ -48,7 +48,7 @@ export default function Equipment() {
 
     return(
         <View style={stylesGb.container}>
-            <Header name='Equipamento'>
+            <Header title='Adicionar Equipamento' route='Add'>
                 {items.length > 1 ? (
                     <View style={styles.multiIcon}>
                         <Icon onPress={removeItem} style={styles.icon} name="minus"/>
@@ -97,7 +97,7 @@ export default function Equipment() {
                             <TextInput
                                 style={stylesGb.input}
                                 placeholder="Ex: 30"
-                                value={String(item.actual)}
+                                value={String(item.next)}
                                 onChangeText={(text) => setItemValue(index, 'next', text)}
                             />
                         </View>

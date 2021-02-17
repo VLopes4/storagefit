@@ -40,6 +40,8 @@ const stylesGb = StyleSheet.create({
     cardInput: {
         flex: 1,
         flexDirection: 'column',
+        maxWidth: 400,
+        width: '100%'
     },
     label: {
         textAlign: 'left',
@@ -56,7 +58,7 @@ const stylesGb = StyleSheet.create({
     btnAdd: {
         backgroundColor: '#005187',
         borderRadius: 5,
-        width: 200,
+        width: '100%',
         padding: 10,
         marginBottom: 20,
         marginTop: 20
@@ -67,7 +69,30 @@ const stylesGb = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         textTransform: 'uppercase'
-    }
+    },
+    btnEdit: {
+        backgroundColor: '#005187',
+        borderRadius: 5,
+        width: '100%',
+        padding: 10,
+        marginTop: 10
+    },
+    btnCancel: {
+        backgroundColor: '#fff',
+        borderColor: '#005187',
+        borderRadius: 5,
+        borderWidth: 1,
+        width: '100%',
+        marginTop: 10,
+        padding: 10,
+    },
+    textCancel: {
+        fontSize: 18,
+        color: '#005187',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        textTransform: 'uppercase'
+    },
 });
 
 export default stylesGb;

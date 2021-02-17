@@ -2,16 +2,22 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import Routes from './src/routes/nav.routes';
+import { AccessProvider } from './src/context/access';
+import Routes from './src/routes/index.routes';
+import { MenuProvider } from 'react-native-popup-menu';
+
 
 const App = () => {
+
   return (
-    <>
-    <StatusBar barStyle="dark-content" backgroundColor="white"/>
-    <NavigationContainer>
-      <Routes/>
-    </NavigationContainer>
-    </>
+    <MenuProvider>
+      <AccessProvider>
+        <StatusBar barStyle="dark-content" backgroundColor="white"/>
+        <NavigationContainer>
+          <Routes/>
+        </NavigationContainer>
+      </AccessProvider>
+    </MenuProvider>
   )
 }
 

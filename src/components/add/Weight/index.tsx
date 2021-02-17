@@ -1,88 +1,102 @@
-import React, { useState } from 'react';
-import { View, ScrollView, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import React, { ReactText, useEffect, useState } from 'react';
+import { View, ScrollView, Text, TextInput, TouchableOpacity, Alert, Keyboard } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
+import Toast from 'react-native-tiny-toast';
+import getRealm from '../../../services/realm';
 import Header from '../../global/Header';
 import stylesGb from '../../global/styles';
-import { styles } from './styles';
-import months from '../../../assets/data/months.json';
+import { useAccess } from '../../../context/access';
 
 export default function Weight() {
-    const [items, setItems] = useState([
-        { id: 1, weight: 0, month: 1, year: 2021 }
-    ]);
+    const { stateLoading } = useAccess();
+    const [lengthControl, setLengthControl] = useState(0);
+    const [weight, setWeight] = useState('');
+    const [month, setMonth] = useState<ReactText>('jan');
 
-    function addNewItem() {
-        const length = items.length;
-        
-        if(length < 12){
-            setItems([
-                ...items,
-                { id: (length + 1), weight: 0, month: (length + 1), year: 2021 }
-            ]);
-        } else {
-            Alert.alert('Aviso', 'limite de meses atingido')
-        }
-    }
+    useEffect(() => {
+        async function loadWeight(){
+            const realm = await getRealm();
 
-    function removeItem() {
-        let updateItem = [];
-
-        for(var i = 1; i <  items.length; i++){
-            updateItem.push(items[i])
+            const response = realm.objects('Weight');
+            setLengthControl(response.length);
         }
 
-        if(updateItem !== []){
-            setItems(updateItem);
+        loadWeight();
+    },[]);
+
+    async function saveWeight() {
+        const data = {
+            id: lengthControl >= 1 ? (lengthControl + 1) : 1,
+            weight: Number(weight),
+            month: month,
+        };
+
+        try {
+            const realm = await getRealm();
+
+            realm.write(() => {
+                realm.create('Weight', data)
+            });
+
+            stateLoading();
+            setLengthControl(lengthControl + 1);
+            Toast.showSuccess('Peso Adicionado');
+        } catch (error) {
+            console.log(error);
+            Toast.show('Erro ao Adicionar Peso');
         }
+
+        setWeight('');
+        setMonth('');
+        Keyboard.dismiss();
     }
 
-    function setItemValue(position: number, field: string, value: string) {
-        const updateItems = items.map((item, index) => {
-            if(index === position) {
-                return { ...item, [field]: value };
-            }
-
-            return item;
-        });
-
-        setItems(updateItems);
-    }
-
-    function handleSubmit() {
-        Alert.alert('Quantidade', String(items[0].month));
+    async function handleSubmit() {
+        try {
+            await saveWeight()
+        } catch (err) {
+            console.log(err)
+        }   
     }
     
     return(
         <View style={stylesGb.container}>
-            <Header name='Peso'>
-                {items.length > 1 ? (
-                    <View style={styles.multiIcon}>
-                        <Icon onPress={removeItem} style={styles.icon} name="minus"/>
-                        <Icon onPress={addNewItem} style={styles.icon} name="plus"/>
-                    </View>
-                ) : (
-                    <Icon onPress={addNewItem} style={styles.icon} name="plus"/>
-                )}
-            </Header>
+            <Header title='Adicionar Peso' route='Add'/>
             <ScrollView style={stylesGb.cardInput} showsVerticalScrollIndicator={false}>
-                {items.map((item, index) => {
-                    return(
-                        <View key={item.id} style={styles.content}>
-                            <Text style={stylesGb.label}>
-                                Peso
-                            </Text>
-                            <TextInput
-                                style={stylesGb.input}
-                                placeholder="Ex: 60"
-                                value={String(item.weight)}
-                                onChangeText={(text) => setItemValue(index, 'month', text)}
-                            />
-                            <Text style={styles.field}>
-                                Peso para o mês de {months[item.month].month}
-                            </Text>
-                        </View>
-                    );
-                })}
+                <View>
+                    <Text style={stylesGb.label}>
+                        Peso
+                    </Text>
+                    <TextInput
+                        style={stylesGb.input}
+                        placeholder="Ex: 60"
+                        value={weight}
+                        onChangeText={(text) => setWeight(text)}
+                        keyboardType="numeric"
+                    />
+                    <Text style={stylesGb.label}>
+                        Mês
+                    </Text>
+                    <View style={stylesGb.input}>
+                        <Picker
+                            selectedValue={month}
+                            onValueChange={(itemValue, itemIndex) => setMonth(itemValue)}
+                        >
+                            <Picker.Item label="Janeiro" value="jan"/>
+                            <Picker.Item label="Fevereiro" value="fev"/>
+                            <Picker.Item label="Março" value="mar"/>
+                            <Picker.Item label="Abril" value="abr"/>
+                            <Picker.Item label="Maio" value="mai"/>
+                            <Picker.Item label="Junho" value="jun"/>
+                            <Picker.Item label="Julho" value="jul"/>
+                            <Picker.Item label="Agosto" value="ago"/>
+                            <Picker.Item label="Setembro" value="set"/>
+                            <Picker.Item label="Outubro" value="out"/>
+                            <Picker.Item label="Novembro" value="nov"/>
+                            <Picker.Item label="Dezembro" value="dez"/>
+                        </Picker>
+                    </View>
+                </View>
             </ScrollView>
             <TouchableOpacity onPress={handleSubmit} style={stylesGb.btnAdd}>
                 <Text style={stylesGb.textAdd}>Adicionar</Text>

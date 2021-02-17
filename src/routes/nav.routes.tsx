@@ -6,10 +6,11 @@ import { styles } from './styles';
 import Home from '../pages/Home';
 import FoodRoutes from './food.routes';
 import AddRoutes from './add.routes';
+import InfoRoutes from './info.routes';
 
 const Tab = createBottomTabNavigator();
 
-export default function Routes() {
+export default function NavRoutes() {
     return(
         <Tab.Navigator 
             screenOptions={({ route }) => ({
@@ -53,7 +54,7 @@ export default function Routes() {
                     )
                 })}
             />
-            <Tab.Screen name="Information" component={Home}/>
+            <Tab.Screen name="Information" component={InfoRoutes}/>
             <Tab.Screen name="Training" component={Home}/>
         </Tab.Navigator>
     );

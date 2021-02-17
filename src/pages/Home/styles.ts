@@ -1,59 +1,41 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    cardContent: {
-        flexDirection: 'row',
-        justifyContent: 'space-between'
+    header: {
+        backgroundColor: '#FFFFFF',
+        paddingBottom: 10,
+        paddingTop: 20,
     },
-    cardKg: {
-        width: 100,
-        height: 100,
-        backgroundColor: '#ffffff',
-        margin: 10,
-        padding: 10,
-        borderWidth: 1,
-        borderColor: '#737373',
-        borderRadius: 8
+    content: {
+        width: '100%',
+        maxWidth: 400
     },
-    cardKgTitle: {
-        textAlign: 'center',
-        marginTop: 5,
-        fontSize: 18,
-        textTransform: 'uppercase'
-    },
-    cardKgNumber: {
-        textAlign: 'center',
-        marginTop: 10,
-        fontSize: 20,
+    welcome: {
+        fontSize: 23,
+        color: '#003265',
         fontWeight: 'bold',
-        color: '#005187'
+        textAlign: 'center'
     },
-    cardTraining: {
-        backgroundColor: '#ffffff',
-        width: 340,
-        height: 100,
-        borderWidth: 1,
-        borderColor: '#737373',
-        borderRadius: 8,
-        margin: 10,
-        bottom: 20
-    },
-    cardHeaderTraining: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: 30,
-        borderBottomWidth: 1,
-        borderColor: '#737373',
-    },
-    weekDay: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginLeft: 10
-    },
-    trainingTitle: {
-        textAlign: 'center',
+    time: {
         fontSize: 20,
-        marginTop: 15
+        color: '#003265',
+        textAlign: 'center'
+    },
+    title: {
+        fontSize: 20,
+        color: '#005187',
+        textAlign: 'left',
+        fontWeight: 'bold',
+        marginTop: 30,
+        marginBottom: 5
+    },
+    training: {
+        fontSize: 20,
+        margin: 20,
+        textAlign: 'center'
+    },
+    card: {
+        width: '100%',
+        maxWidth: 400
     }
 });

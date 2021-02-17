@@ -5,20 +5,21 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { styles } from './styles';
 
 interface HeaderProps {
-    name: string;
+    title: string;
+    route: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ children, name }) => {
+const Header: React.FC<HeaderProps> = ({ title, route, children }) => {
     const navigation = useNavigation();
     
     return(
         <View style={styles.container}>
             <View style={styles.content}>
-                <Icon onPress={() => { navigation.navigate('Add') }} style={styles.icon} name="long-arrow-left"/>
+                <Icon onPress={() => { navigation.navigate(`${route}`) }} style={styles.icon} name="long-arrow-left"/>
                 { children }
             </View>
             <Text style={styles.title}>
-                Adicionar { name }
+                { title }
             </Text>
         </View>
     );
