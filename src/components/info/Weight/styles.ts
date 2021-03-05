@@ -7,8 +7,10 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     cardKg: {
-        width: 100,
-        height: 100,
+        width: '100%',
+        maxWidth: 110,
+        maxHeight: 100,
+        height: '100%',
         backgroundColor: '#ffffff',
         margin: 10,
         padding: 10,
@@ -27,10 +29,12 @@ export const styles = StyleSheet.create({
         marginTop: 10,
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#005187'
+        color: '#005187',
+        fontFamily: 'Roboto'
     },
     icon: {
         fontSize: 35,
-        color: '#005187'
+        color: '#005187',
+        fontFamily: 'Roboto'
     },
 });

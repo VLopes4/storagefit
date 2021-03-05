@@ -2,10 +2,14 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     cardTraining: {
+        flex: 1,
         backgroundColor: '#ffffff',
         borderWidth: 1,
-        borderColor: '#737373',
+        borderColor: '#000000',
         borderRadius: 8,
+        width: '100%',
+        maxWidth: 390,
+        marginRight: 15,
     },
     cardHeaderTraining: {
         flexDirection: 'row',
@@ -13,7 +17,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         height: 50,
         borderBottomWidth: 1,
-        borderColor: '#737373',
+        borderColor: '#000000',
     },
     title: {
         fontSize: 18,
@@ -35,6 +39,7 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         textTransform: 'uppercase',
         fontWeight: 'bold',
-        padding: 10
+        padding: 10,
+        fontFamily: 'Roboto'
     }
 });

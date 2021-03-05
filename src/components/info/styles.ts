@@ -5,13 +5,14 @@ export const styles = StyleSheet.create({
         fontSize: 25,
         color: '#003265',
         fontWeight: 'bold',
-        marginBottom: 20
+        marginBottom: 20,
+        fontFamily: 'Roboto'
     },
     card: {
         padding: 20,
         borderRadius: 5,
         borderWidth: 1,
-        borderColor: '#737373',
+        borderColor: '#000',
         backgroundColor: '#FFF',
         marginBottom: 20,
     },
@@ -23,7 +24,8 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         color: '#003265',
-        marginBottom: 10
+        marginBottom: 10,
+        fontFamily: 'Roboto'
     },
     description: {
         fontSize: 18,
@@ -45,5 +47,6 @@ export const styles = StyleSheet.create({
         marginTop: 10,
         color: '#005187',
         fontWeight: 'bold',
+        fontFamily: 'Roboto'
     },
 });

@@ -27,5 +27,6 @@ export const styles = StyleSheet.create({
         color: '#005187',
         textAlign: 'center',
         textTransform: 'uppercase',
+        fontFamily: 'Roboto'
     }
 });

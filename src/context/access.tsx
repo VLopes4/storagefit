@@ -13,6 +13,11 @@ interface AccessContextData {
         weight: number,
         pretense: string
         ): Promise<void>;
+    update(
+        name: string,
+        weight: number,
+        pretense: string
+    ): Promise<void>
     stateLoading(): void;
 }
 
@@ -45,12 +50,22 @@ export const AccessProvider: React.FC = ({ children }) => {
         setLoading(false)
     }
 
+    async function update(name: string, weight: number, pretense: string){
+        setLoading(true);
+        await AsyncStorage.clear()
+        
+        const data: User = { name: name, startingWeight: weight, pretense: pretense };
+        setUser(data);
+        await AsyncStorage.setItem('@storagefit:user', JSON.stringify(data));
+        setLoading(false);
+    }
+
     function stateLoading(){
         setState(!state);
     }
 
     return(
-        <AccessContext.Provider value={{ first, user, loading, state, collect, stateLoading }}>
+        <AccessContext.Provider value={{ first, user, loading, state, collect, update, stateLoading }}>
             { children }
         </AccessContext.Provider>
     );

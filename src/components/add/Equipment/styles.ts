@@ -1,9 +1,6 @@
 import { StyleSheet } from 'react-native';;
 
 export const styles = StyleSheet.create({
-    content: {
-        width: 340,
-    },
     multiIcon: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -18,6 +15,7 @@ export const styles = StyleSheet.create({
     },
     field: {
         marginLeft: 2,
-        color: '#005187'
+        color: '#005187',
+        fontFamily: 'Roboto'
     }
 });

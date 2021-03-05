@@ -8,14 +8,14 @@ import { useAccess } from '../../../context/access';
 
 export default function InfoTraining() {
     const { state } = useAccess();
-    const [training, setTraining] = useState<any>([]);
+    const [trainings, setTrainings] = useState<any>([]);
 
     useEffect(() => {
         async function loadTraining(){
             const realm = await getRealm();
 
             const response = realm.objects('Training');
-            setTraining(response)
+            setTrainings(response)
         }
 
         loadTraining();
@@ -25,8 +25,9 @@ export default function InfoTraining() {
         <View style={stylesGb.container}>
             <Header title='Meus Treinos' route='Information'/>
             <FlatList
+                showsVerticalScrollIndicator={false}
                 keyboardShouldPersistTaps="handled"
-                data={training}
+                data={trainings}
                 keyExtractor={item => String(item.id)}
                 renderItem={({ item }) => (
                     <DataTraining data={item}/>

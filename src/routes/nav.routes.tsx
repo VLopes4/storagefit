@@ -7,6 +7,7 @@ import Home from '../pages/Home';
 import FoodRoutes from './food.routes';
 import AddRoutes from './add.routes';
 import InfoRoutes from './info.routes';
+import Develop from '../components/global/Develop';
 
 const Tab = createBottomTabNavigator();
 
@@ -55,7 +56,7 @@ export default function NavRoutes() {
                 })}
             />
             <Tab.Screen name="Information" component={InfoRoutes}/>
-            <Tab.Screen name="Training" component={Home}/>
+            <Tab.Screen name="Training" component={Develop}/>
         </Tab.Navigator>
     );
 }

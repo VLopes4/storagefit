@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
     },
     field: {
         marginLeft: 2,
-        color: '#005187'
+        color: '#005187',
+        fontFamily: 'Roboto'
     }
 });

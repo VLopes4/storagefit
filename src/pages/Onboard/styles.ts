@@ -11,7 +11,8 @@ export const styles = StyleSheet.create({
     title: {
         fontSize: 25,
         fontWeight: 'bold',
-        color: '#003265'
+        color: '#003265',
+        fontFamily: 'Roboto'
     },
     description: {
         fontSize: 18,
@@ -26,6 +27,7 @@ export const styles = StyleSheet.create({
         textAlign: 'left',
         fontSize: 18,
         color: '#000',
+        fontFamily: 'Roboto',
         marginTop: 20,
         width: '100%',
         maxWidth: 400
@@ -52,6 +54,7 @@ export const styles = StyleSheet.create({
     btnTextContinue: {
         fontSize: 18,
         color: '#FFFFFF',
+        fontFamily: 'Roboto',
         fontWeight: 'bold'
     }
 });

@@ -21,7 +21,8 @@ const stylesGb = StyleSheet.create({
         fontSize: 35,
         color: '#fff',
         marginTop: 10,
-        marginLeft: 15
+        marginLeft: 15,
+        fontFamily: 'Roboto'
     },
     titleFeed: {
         fontSize: 20,
@@ -30,12 +31,14 @@ const stylesGb = StyleSheet.create({
         marginBottom: 25,
         textTransform: 'uppercase',
         textAlign: 'center',
-        color: '#003265'
+        color: '#003265',
+        fontFamily: 'Roboto'
     },
     textFeed: {
         fontSize: 18,
         textAlign: 'justify',
-        color: '#000'
+        color: '#000',
+        fontFamily: 'Roboto'
     },
     cardInput: {
         flex: 1,
@@ -47,7 +50,8 @@ const stylesGb = StyleSheet.create({
         textAlign: 'left',
         fontSize: 18,
         color: '#000',
-        marginTop: 20
+        marginTop: 20,
+        fontFamily: 'Roboto'
     },
     input: {
         textAlign: 'left',
@@ -68,7 +72,8 @@ const stylesGb = StyleSheet.create({
         color: '#fff',
         fontWeight: 'bold',
         textAlign: 'center',
-        textTransform: 'uppercase'
+        textTransform: 'uppercase',
+        fontFamily: 'Roboto'
     },
     btnEdit: {
         backgroundColor: '#005187',
@@ -85,13 +90,15 @@ const stylesGb = StyleSheet.create({
         width: '100%',
         marginTop: 10,
         padding: 10,
+        marginBottom: 20
     },
     textCancel: {
         fontSize: 18,
         color: '#005187',
         fontWeight: 'bold',
         textAlign: 'center',
-        textTransform: 'uppercase'
+        textTransform: 'uppercase',
+        fontFamily: 'Roboto'
     },
 });
 

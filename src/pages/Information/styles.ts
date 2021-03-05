@@ -5,14 +5,16 @@ export const styles = StyleSheet.create({
     title: {
         fontSize: 25,
         color: '#003265',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'Roboto'
     },
     text: {
         fontSize: 18,
         textAlign: 'left',
         marginTop: 10,
         marginBottom: 10,
-        color: '#000'
+        color: '#000',
+        fontFamily: 'Roboto'
     },
     btn: {
         width: 380,
@@ -50,5 +52,6 @@ export const styles = StyleSheet.create({
         textAlign: 'left',
         textTransform: 'uppercase',
         marginLeft: 5,
+        fontFamily: 'Roboto'
     }
 });

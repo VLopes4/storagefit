@@ -147,7 +147,7 @@ const DataTraining: React.FC<dataTrainingProps> = ({ data }) => {
                     <Text style={styles.detail}>{data.weekday}</Text>
                 </View>
                 <View style={styles.additional}>
-                    <Icon name="weight-lifter" color='#003265' size={25}/>
+                    <Icon name="repeat" color='#003265' size={25}/>
                     <Text style={styles.detail}>{data.repetition}</Text>
                 </View>
             </View>

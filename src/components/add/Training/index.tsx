@@ -5,7 +5,6 @@ import Toast from 'react-native-tiny-toast';
 import getRealm from '../../../services/realm';
 import Header from '../../global/Header';
 import stylesGb from '../../global/styles';
-import { refresh } from '../../../services/help';
 import { useAccess } from '../../../context/access';
 
 export default function Training() {
@@ -59,7 +58,6 @@ export default function Training() {
     async function handleSubmit() {
         try {
             await saveTraining()
-            refresh()
         } catch (err) {
             console.log(err)
         }

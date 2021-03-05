@@ -7,11 +7,13 @@ export const styles = StyleSheet.create({
         textTransform: 'uppercase',
         marginTop: 20,
         marginBottom: 20,
+        fontFamily: 'Roboto'
     },
     text: {
         fontSize: 18,
         marginTop: 10,
-        textAlign: 'justify'
+        textAlign: 'justify',
+        fontFamily: 'Roboto'
     },
     imageCarbs: {
         marginTop: 20,

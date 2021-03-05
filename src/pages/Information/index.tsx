@@ -38,7 +38,7 @@ export default function Information() {
                         <Image style={styles.btnIco} source={imgBook}/>
                     </LinearGradient>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.btn} onPress={() => { navigation.navigate('Equipment') }}>
+                <TouchableOpacity style={styles.btn} onPress={() => { navigation.navigate('InfoEquipment') }}>
                     <LinearGradient style={styles.gradient} colors={['#005187', '#ffffff', '#ffffff']} start={{ x: 0, y: 0 }} end={{ x: 1.1, y: 0}}>
                         <Text style={styles.btnText}>
                             Equipamentos
@@ -46,7 +46,7 @@ export default function Information() {
                         <Image style={styles.btnIco} source={imgActi}/>
                     </LinearGradient>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.btn} onPress={() => { navigation.navigate('Menu') }}>
+                <TouchableOpacity style={styles.btn} onPress={() => { navigation.navigate('Develop') }}>
                     <LinearGradient style={styles.gradient} colors={['#005187', '#ffffff', '#ffffff']} start={{ x: 0, y: 0 }} end={{ x: 1.1, y: 0}}>
                         <Text style={styles.btnText}>
                             Cardápios

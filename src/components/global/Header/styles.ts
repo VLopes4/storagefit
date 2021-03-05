@@ -22,7 +22,8 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         textTransform: 'uppercase',
         color: '#003265',
-        margin: 10
+        margin: 10,
+        fontFamily: 'Roboto'
     },
     multiIcon: {
         flexDirection: 'row',

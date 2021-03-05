@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
         textTransform: 'uppercase',
         marginTop: 20,
         marginBottom: 20,
+        fontFamily: 'Roboto'
     },
     text: {
         fontSize: 18,
@@ -23,6 +24,7 @@ export const styles = StyleSheet.create({
         color: '#000',
         marginTop: 20,
         marginBottom: 20,
+        fontFamily: 'Roboto'
     },
     backOrange: {
         backgroundColor: '#ffe191',
@@ -34,10 +36,12 @@ export const styles = StyleSheet.create({
         textTransform: 'uppercase',
         color: '#ed1651',
         marginTop: 20,
+        fontFamily: 'Roboto',
         marginBottom: 20,
     },
     textOrange: {
         color: '#ed1651',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'Roboto'
     },
 });

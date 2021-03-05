@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Text, View } from 'react-native';
+import { Alert, Image, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Toast from 'react-native-tiny-toast';
 import { useAccess } from '../../../context/access';
@@ -9,6 +9,7 @@ import Chart from '../../Chart';
 import Header from '../../global/Header';
 import stylesGb from '../../global/styles';
 import { styles } from './styles';
+import imgFit from '../../../assets/images/fitness.png';
 
 export default function InfoWeight() {
     const { user, state, stateLoading } = useAccess();
@@ -63,6 +64,22 @@ export default function InfoWeight() {
             console.log(error);
             Toast.show('Erro ao Deletar');
         }
+    }
+
+    if(dataChart.length <= 0 ){
+        return (
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff'}}>
+                <Image style={{ maxHeight: 400, resizeMode: 'center' }} source={imgFit}/>
+                <View style={{ bottom: 50 }}>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center', color: '#003265', fontFamily: 'Roboto'}}>
+                        ADICIONE PESOS
+                    </Text>
+                    <Text style={{ fontSize: 18, textAlign: 'center', color: '#000', fontFamily: 'Roboto' }}>
+                        Adicione pesos para exibir os seus resultados alcançados com um gráfico de comparação
+                    </Text>
+                </View>
+            </View>
+        )
     }
 
     return(

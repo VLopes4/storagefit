@@ -4,27 +4,34 @@ import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { styles } from './styles';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon2 from 'react-native-vector-icons/FontAwesome';
 import getRealm from '../../services/realm';
-import CardTraining from '../../components/home/Training';
-import stylesGb from '../../components/global/styles';
 import { useAccess } from '../../context/access';
+import CardTraining from '../../components/home/Training';
+import CardEquipment from '../../components/home/Equipment';
+import Settings from '../../components/Settings';
+import stylesGb from '../../components/global/styles';
 
 export default function Home() {
     const { user, state } = useAccess();
     const [time, setTime] = useState('');
     const [welcome, setWelcome] = useState('');
+    const [today] = useState(new Date().getDay());
+    const [settings, setSettings] = useState(false);
     const [training, setTraining] = useState<any>([]);
     const [equipment, setEquipment] = useState<any>([]);
-    const [today, setToday] = useState(new Date().getDay());
 
     let weekday = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
 
     useEffect(() => {
-        async function loadTraining(){
+        async function loadData(){
             const realm = await getRealm();
 
-            const response = realm.objects('Training').filtered(`weekday == "${weekday[today]}"`);
-            setTraining(response)
+            const resTraining = realm.objects('Training').filtered(`weekday == "${weekday[today]}"`);
+            setTraining(resTraining);
+
+            const resEquipment = realm.objects('Equipment').filtered(`weekday == "${weekday[today]}"`);
+            setEquipment(resEquipment);
         }
 
         function loadTime() {
@@ -41,60 +48,99 @@ export default function Home() {
         }
 
         loadTime();
-        loadTraining();
+        loadData();
     },[state]);
 
     return(
         <>
             <View style={styles.header}>
-                <Text style={styles.welcome}>
-                    {welcome} {user?.name}, vamos treinar?
-                </Text>
-                <Text style={styles.time}>
-                    {time}
-                </Text>
-            </View>
-            <View style={stylesGb.container}>
-                <View style={styles.content}>
-                    {training.length === 0 ? (
-                        <View>
-                            <Text style={styles.training}>
-                                Adicione treinos para { weekday[today].toLowerCase() } e eles
-                                irão aparecer aqui toda { weekday[today].toLowerCase() }
+                <View style={styles.headerWelcome}>
+                    { settings ? (
+                        <>
+                            <Icon2 onPress={() => setSettings(false)} name="long-arrow-left" color='#005187' size={30}/>
+                            <Text style={[styles.welcome, { marginRight: 'auto', marginLeft: 'auto' }]}>
+                                Configurações
                             </Text>
-                            <Icon style={{textAlign: 'center'}} name='weight-lifter' color='#005187' size={100}/>
-                        </View>
+                        </>
                     ) : (
                         <>
-                            <Text style={styles.title}>
-                                {training.length > 1 ? "Treinos de Hoje" : "Treino de Hoje"}
+                            <Text style={styles.welcome}>
+                                {welcome}
                             </Text>
-                            <FlatList
-                                style={styles.card}
-                                keyboardShouldPersistTaps="handled"
-                                data={training}
-                                keyExtractor={item => String(item.id)}
-                                renderItem={({ item }) => (
-                                    <CardTraining data={item}/>
-                                )}
-                            />
+                            <Icon2 onPress={() => setSettings(true)} name="gear" color='#005187' size={30}/>
                         </>
-                    )}
-                    {equipment.length === 0 ? (
-                        <View>
-                            <Text style={styles.training}>
-                                Adicione equipamento para o seu treino de { weekday[today].toLowerCase() } e eles
-                                irão aparecer aqui toda { weekday[today].toLowerCase() }
-                            </Text>
-                            <Icon style={{textAlign: 'center'}} name='weight-kilogram' color='#005187' size={100}/>
-                        </View>
-                    ) : (
-                        <Text style={styles.title}>
-                            Equipamentos de Hoje
-                        </Text>
                     )}
                 </View>
             </View>
+            { settings ? (
+                <Settings/>
+            ) : (
+                <ScrollView showsVerticalScrollIndicator={false} style={{ backgroundColor: '#f5faff' }}>
+                    <View style={styles.headerDay}>
+                        <Text style={styles.welcome}>
+                            {user?.name}, vamos treinar hoje?
+                        </Text>
+                        <Text style={styles.time}>
+                            {time}
+                        </Text>
+                    </View>
+                    <View style={stylesGb.container}>
+                        <View style={styles.content}>
+                            {training.length === 0 ? (
+                                <View>
+                                    <Text style={styles.training}>
+                                        Adicione treinos para { weekday[today].toLowerCase() } e eles
+                                        irão aparecer aqui toda { weekday[today].toLowerCase() }
+                                    </Text>
+                                    <Icon style={{textAlign: 'center'}} name='weight-lifter' color='#005187' size={100}/>
+                                </View>
+                            ) : (
+                                <>
+                                    <Text style={styles.title}>
+                                        {training.length > 1 ? "Treinos de Hoje" : "Treino de Hoje"}
+                                    </Text>
+                                    <FlatList
+                                        style={styles.listTraining}
+                                        horizontal
+                                        showsHorizontalScrollIndicator={false}
+                                        keyboardShouldPersistTaps="handled"
+                                        data={training}
+                                        keyExtractor={item => String(item.id)}
+                                        renderItem={({ item }) => (
+                                            <CardTraining data={item}/>
+                                        )}
+                                    />
+                                </>
+                            )}
+                            {equipment.length === 0 ? (
+                                <View>
+                                    <Text style={styles.training}>
+                                        Adicione equipamento para o seu treino de { weekday[today].toLowerCase() } e eles
+                                        irão aparecer aqui toda { weekday[today].toLowerCase() }
+                                    </Text>
+                                    <Icon style={{textAlign: 'center'}} name='weight-kilogram' color='#005187' size={100}/>
+                                </View>
+                            ) : (
+                                <>
+                                    <Text style={styles.title}>
+                                        {equipment.length > 1 ? "Equipamentos de Hoje" : "Equipamento de Hoje"}
+                                    </Text>
+                                    <FlatList
+                                        horizontal
+                                        showsHorizontalScrollIndicator={false}
+                                        keyboardShouldPersistTaps="handled"
+                                        data={equipment}
+                                        keyExtractor={item => String(item.id)}
+                                        renderItem={({ item }) => (
+                                            <CardEquipment data={item} />
+                                        )}
+                                    />
+                                </>
+                            )}
+                        </View>
+                    </View>
+                </ScrollView>
+            )}
         </>
     );
 }

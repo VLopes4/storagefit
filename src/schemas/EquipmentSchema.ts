@@ -6,8 +6,9 @@ export default class EquipmentSchema {
             id: { type: 'int', indexed: true },
             name: 'string',
             description: 'string',
-            actual: 'int',
-            next: 'int'
+            current: 'int',
+            next: 'int',
+            weekday: 'string'
         },
     };
 }

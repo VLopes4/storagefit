@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
         textTransform: 'uppercase',
         marginTop: 20,
         marginBottom: 20,
+        fontFamily: 'Roboto'
     },
     text: {
         fontSize: 18,
@@ -35,7 +36,8 @@ export const styles = StyleSheet.create({
     },
     cardText: {
         fontSize: 18,
-        color: '#fff'
+        color: '#fff',
+        fontFamily: 'Roboto'
     },
     backWhite: {
         backgroundColor: '#fff'

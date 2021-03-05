@@ -4,14 +4,16 @@ export const styles = StyleSheet.create({
     title: {
         fontSize: 25,
         color: '#003265',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'Roboto'
     },
     text: {
         fontSize: 18,
         textAlign: 'left',
         marginTop: 10,
         marginBottom: 10,
-        color: '#000'
+        color: '#000',
+        fontFamily: 'Roboto'
     },
     backgroundImg: {
         width: 'auto',
@@ -32,6 +34,7 @@ export const styles = StyleSheet.create({
         marginLeft: 20,
         marginBottom: 20,
         textTransform: 'uppercase',
-        textDecorationStyle: "solid"
+        textDecorationStyle: "solid",
+        fontFamily: 'Roboto'
     }
 });
